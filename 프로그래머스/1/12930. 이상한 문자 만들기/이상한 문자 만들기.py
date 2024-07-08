@@ -2,7 +2,7 @@
 
 def solution(s):
     answer_list = []
-    words = s.split(" ")
+    words = s.split(" ") # 공백으로 구분해서 쪼개기 => 자동 리스트로 들어감
     
     for word in words:
         tem_ans = ''
