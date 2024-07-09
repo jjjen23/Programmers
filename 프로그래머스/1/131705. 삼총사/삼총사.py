@@ -9,4 +9,5 @@ def solution(number):
     for triple in triples:
         if sum(triple) == 0:
             answer += 1
+            
     return answer
