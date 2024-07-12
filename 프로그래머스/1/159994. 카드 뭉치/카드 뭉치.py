@@ -1,5 +1,6 @@
 def solution(cards1, cards2, goal):
-    #answer = ''
+    # goal에 나오는 단어 카드뭉치의 첫번째 요소가 맞는지 검사하고 아니면 No 출력!
+    # 맞다면 사용한 카드는 제거해준다.
     
     for word in goal:
         
