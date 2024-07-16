@@ -31,7 +31,7 @@ def solution(n):
     for i in range(2, int(n**0.5) + 1):
         # 제거하지 않은 것 중 최소값
         if i in array:
-            # 범위 내에서 i를 제외한 모든 i의 배수 제거
+            # 범위 내에서 i를 제외한 모든 i의 배수 제거(차집합으로 제거해버리기..!!!)
             array -= set(range(i*2, n+1, i))
     answer = len(array)
     
