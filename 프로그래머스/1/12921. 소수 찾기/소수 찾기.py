@@ -1,3 +1,14 @@
+"""
+# 에라토스테네스의 체 간단하고 간지버전...
+def solution(n):
+    num=set(range(2,n+1))
+
+    for i in range(2,n+1):
+        if i in num:
+            num-=set(range(2*i,n+1,i))
+    return len(num)
+"""
+
 def solution(n):
     array = [True for i in range(n+1)]
     answer = 0
@@ -11,7 +22,10 @@ def solution(n):
                 array[i*j] = False
                 j += 1
     
-    for i in range(2, n+1):
-        if array[i] == True:
-            answer += 1
+    # for i in range(2, n+1):
+    #     if array[i] == True:
+    #         answer += 1
+    
+    answer = array.count(True) - 2 #0,1 제외
+    
     return answer
