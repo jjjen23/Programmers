@@ -8,11 +8,12 @@ def solution(nums):
     
     for comb in combs:
         combSum = sum(comb)
-        tem = 0
+        tem = True
+        # 에라토스테네스의 체(제곱근까지만 확인)
         for i in range(2, int(combSum**0.5)+1):
             if combSum % i == 0:
-                tem = -1
-        if tem == 0 :
+                tem = False
+        if tem == True :
             answer += 1
 
     return answer
