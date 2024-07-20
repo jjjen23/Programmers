@@ -11,8 +11,9 @@ def solution(n, lost, reserve):
             reserve.remove(i)
             lost.remove(i)
             answer += 1
+            
     
-    # 정렬 해야 정답됨.
+    # 정렬 해야 정답됨.  왜지 ..ㅡㅡ 
     reserve.sort()
     lost.sort()
     
