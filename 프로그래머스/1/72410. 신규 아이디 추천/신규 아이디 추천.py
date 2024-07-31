@@ -2,19 +2,17 @@ possible = ["-","_","."]
 
 def solution(new_id):
     answer = ''
-    new_id = list(new_id)
+    
     
     # 1단계
-    for i in range(len(new_id)):
-        if new_id[i].isupper():
-            new_id[i] = new_id[i].lower()
+    new_id = new_id.lower()
+    
     
     # 2단계
-    for i in range(len(new_id)):
-        if new_id[i].isalpha() or new_id[i] in possible or new_id[i].isdigit():
-            answer += new_id[i]
+    for i in new_id:
+        if i.isalpha() or i in possible or i.isdigit():
+            answer += i
     
-    #new_id =  str(new_id)
     # 3단계
     while ".." in answer:
         answer = answer.replace("..",".")
