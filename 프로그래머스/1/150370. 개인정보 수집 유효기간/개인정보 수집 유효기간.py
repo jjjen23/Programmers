@@ -14,26 +14,24 @@ def solution(today, terms, privacies):
         year, month, day = map(int, nalja.split("."))
         
         newday = day - 1
-        
         daycarry = 0
-        
         if newday == 0 :
             newday = 28
             daycarry = -1
             
         newmonth = (month + dict1[alpa]) + daycarry
         
-        mcarry = 0
+        mcarry1 = 0
         if newmonth > 12 :
-            mcarry = newmonth // 12
+            mcarry1 = newmonth // 12
             newmonth = newmonth % 12
         
-        ycarry = 0
+        mcarry2 = 0
         if newmonth == 0 :
             newmonth = 12
-            ycarry = -1 
+            mcarry2 = -1 
             
-        newyear = year + mcarry + ycarry
+        newyear = year + mcarry1 + mcarry2
         
         #print(newyear, newmonth, newday)
         
