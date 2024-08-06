@@ -9,6 +9,8 @@
 
 
 def solution(players, callings):
+    
+    
     dict1 = {}
     for i in range(len(players)):
         dict1[players[i]] = i
