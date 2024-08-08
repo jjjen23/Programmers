@@ -2,7 +2,6 @@ def solution(id_list, report, k):
     answer = []
     
     user_repo = {}
-    
     total = {}
     
     for name in id_list:
