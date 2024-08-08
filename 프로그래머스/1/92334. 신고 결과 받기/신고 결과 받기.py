@@ -1,3 +1,25 @@
+# 정답 2 (집합을 이용해 중복 신고 제거) 
+def solution(id_list, report, k):
+    answer = [0] * len(id_list)
+    
+    total = {}
+    for name in id_list:
+        total[name] = 0
+    
+    for re in set(report):
+        name, who = re.split()
+        total[who] += 1
+    
+    for re in set(report):
+        name, who = re.split()
+        if total[who] >= k:
+            answer[id_list.index(name)] += 1
+        
+    return answer
+
+"""
+# 정답 1 (딕셔너리 안의 딕셔너리 구조) 
+
 def solution(id_list, report, k):
     answer = []
     
@@ -35,3 +57,5 @@ def solution(id_list, report, k):
         answer.append(tem)
         
     return answer
+
+"""
