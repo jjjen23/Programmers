@@ -40,7 +40,7 @@ def solution(friends, gifts):
     
     print(giftgisu)
     
-    # 중복 계산 되는 부분을 해결해야함.. +_+
+    # 중복 계산 되는 부분을 해결해야함.. +_+ -> 기존 모든 조합에서 조합 함수 이용. 
     for comb in combinations(friends,2):
         name, who = comb[0], comb[1]
         if total[name][who] > total[who][name] :
@@ -62,6 +62,7 @@ def solution(friends, gifts):
 
 
 """
+# 정답 : 1.  (중복 계산되는 형태로 2로 나눠줌.)
 def solution(friends, gifts):
     answer = 0
     
