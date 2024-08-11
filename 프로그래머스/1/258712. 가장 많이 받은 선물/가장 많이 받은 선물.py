@@ -30,9 +30,9 @@ def solution(friends, gifts):
     for name in friends:
         sendgift = sum(total[name].values())
         receivegift = 0
-        meexcludelist = list(setfriends - {name})
+        #meexcludelist = list(setfriends - {name})
         
-        for i in meexcludelist:
+        for i in total[name].keys():
             receivegift += total[i][name]
         
         # 사람 별 선물지수 저장
