@@ -1,23 +1,24 @@
 def solution(brown, yellow):
     answer = []
-    #print(int(yellow**0.5))
-    
     
     i = 0
     while True:
         i += 1
+        
         col = i
+        # 나누어 떨어지는 수만 !! test!!
         if yellow % i  == 0:
             row = yellow // i
+        # 나누어 떨어지지 않는다면 다음 .. 
         else:
             continue
-        #print(col,row)
+
         
         if ((col+2) * (row+2)) - yellow == brown:
             answer.append(row+2)
             answer.append(col+2)
             break
             
-    #answer.sort(reverse = True)
+
     
     return answer
