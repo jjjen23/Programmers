@@ -1,15 +1,12 @@
 def solution(s):
     tem = []
-    answer = []
+    answer = ""
     abplist = s.split(" ")
     
     print(abplist)
     for i in abplist:
         tem.append(int(i))
     
-    answer.append(min(tem))
-    answer.append(max(tem))
+    answer = str(min(tem)) +" "+ str(max(tem))
     
-    st = ' '.join(map(str,answer))
-    
-    return st
+    return answer
