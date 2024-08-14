@@ -1,7 +1,7 @@
 def solution(n):
     answer = 0
     numlist = list(range(1,n+1))
-    print(numlist)
+
     
     for i in range(len(numlist)):
         target = 0
@@ -12,4 +12,5 @@ def solution(n):
                 break
             elif target > n:
                 break
+                
     return answer
