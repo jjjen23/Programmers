@@ -18,7 +18,7 @@ def solution(n, words):
         tem = words[i]
         
         if len(a_list) > 0:
-            # --- 실패 조건 -----
+            # --- 실패 조건 두 가지 -----
             # 이미 말한 단어를 말했을 때
             if tem in a_list:
                 answer.append((i % n) +1) # 번호 추가
@@ -40,6 +40,8 @@ def solution(n, words):
     return answer
 
 """
+# 정답1 : pop으로 풀기
+
 def solution(n, words):
     answer = []
     wordslen = len(words)
