@@ -21,6 +21,9 @@ def solution(n, left, right):
 #     answer = newarr[left:right+1]
 
 #     print(answer)
+    
+    # x or y값 중 더 큰 값이 arr[x][y] 의 값이 된다. (규칙) 
+    # 범위 까지의 값을 행, 열로 재편성해서 값을 구한다. -> 시간 단축
     for i in range(left, right+1):
         row = i // n
         col = i % n
