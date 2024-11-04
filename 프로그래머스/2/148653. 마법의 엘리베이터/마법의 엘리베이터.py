@@ -6,7 +6,7 @@ def solution(storey):
     # 현재 자릿값이 0~4 -> 0에 도달하는 쪽
     # 현재 자릿값이 5 -> 다음자릿수 보고 똑같이
     
-    # 0이 되면 종료
+    # 0이 되면 종료 
     while storey:
         remainder = storey % 10
         if remainder > 5:
@@ -21,6 +21,9 @@ def solution(storey):
             answer += remainder
         # 다음 자릿수로    
         storey //= 10
+        print(storey)
         
     
     return answer
+
+print(solution(89))
