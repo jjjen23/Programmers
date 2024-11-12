@@ -38,6 +38,7 @@ def solution(m, musicinfos):
         
         else:        
             melody = melody[:runnigTime]
+            
         melody = ''.join(melody)
         
         
