@@ -27,7 +27,7 @@ def solution(users, emoticons):
             permoney = 0
             for i in range(len(perm)):
                 if wantsale <= perm[i]:
-                    permoney+=emoticons[i]*((100-perm[i])/100)
+                    permoney+=emoticons[i]*(100-perm[i])*0.01
             if permoney >= limit:
                 plus += 1
             else:
