@@ -39,6 +39,5 @@ def solution(N, road, K):
     for i in range(1,N+1):
         if K >= distance[i]:
             answer+=1
-    # print(distance)
     
     return answer
