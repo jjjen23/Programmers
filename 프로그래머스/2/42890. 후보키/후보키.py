@@ -11,13 +11,10 @@ def solution(relation):
     test = list(range(len(relation[0])))
     for i in range(1,len(relation[0])+1):
         for com in combinations(test,i):
-            tem = set()
-            for rel in relation:
-                for idx in com:
-                    t = tuple(rel[idx] for idx in com)
-                    tem.add(t)
+            tem = {tuple(rel[idx] for idx in com) for rel in relation}
+                    
             if len(tem) == len(relation):
-                
+                # 최소성 구하기 : 이미 추가된 조합과 새로 검증하는 조합이 서로의 부분집합히면 안됨!!!!!
                 if not any(set(key).issubset(set(com)) for key in resList):
                     resList.append(com)
     answer = len(resList)
