@@ -1,0 +1,4 @@
+-- 보호소에 들어온 이름은 몇 개인지?? , NULL은 집계 X, 중복 X
+SELECT COUNT(DISTINCT NAME)
+FROM ANIMAL_INS 
+WHERE NAME IS NOT NULL
