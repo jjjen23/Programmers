@@ -1,3 +1,38 @@
+from itertools import combinations_with_replacement
+
+def solution(n, info):
+    ry_scores = []
+    
+    for com in combinations_with_replacement(range(11),n):
+        peach_score = 0
+        r_score = 0
+        lionList = [0]*11
+        
+        for idx in com:
+            lionList[10-idx] += 1
+        
+        for i in range(11):
+            if info[i] == lionList[i] == 0:
+                continue
+            if info[i] < lionList[i]:
+                r_score += (10-i)
+            else:
+                peach_score += (10-i)
+        
+        diff = r_score - peach_score
+        if diff > 0:
+            ry_scores.append((diff,lionList[::-1]))
+            
+    ry_scores.sort(key = lambda x : (x[0],x[1]), reverse=True )
+    
+    if len(ry_scores) == 0:
+        return [-1]
+    else:
+        return ry_scores[0][-1][::-1] 
+        
+    
+
+"""
 def solution(n, info):
     global answer, max_score
     # 1. 더 많은 k점을 맞춘 사람이 k점수를 가져간다.
@@ -51,6 +86,6 @@ def solution(n, info):
         return [-1]
     else:
         return answer
-            
+"""
             
             
