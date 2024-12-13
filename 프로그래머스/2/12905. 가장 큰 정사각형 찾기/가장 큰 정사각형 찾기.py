@@ -18,7 +18,7 @@ def solution(board):
         dp[i][0] = board[i][0]
     dp[0] = board[0]
     
-    # 1열, 1행 이상 부터 탐색, 위, 대각선위, 왼쪽 탐색 하기 위함
+    # 1열, 1행 이상 부터 탐색, 위, 대각선 위, 왼쪽 탐색 하기 위함
     for i in range(1,len(board)):
         for j in range(1,len(board[0])):
             if board[i][j] == 1:
@@ -27,6 +27,6 @@ def solution(board):
             if dp[i][j] > global_max :
                 global_max = dp[i][j] 
                 
-    answer = global_max ** 2
+    answer = global_max ** 2 # 넓이니까 제곱
     
     return answer
