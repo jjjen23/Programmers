@@ -34,6 +34,7 @@ def solution(maps):
         for j in range(m):
             if maps[i][j] != 'X' and not visited[i][j]:
                 answer.append(bfs(i,j))
+                
     if len(answer) == 0:
         answer.append(-1)
     else:
