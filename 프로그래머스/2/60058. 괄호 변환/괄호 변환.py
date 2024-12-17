@@ -31,6 +31,7 @@ def solution(p):
             
     # 두 균형잡힌 문자열로 분리하는 함수        
     def recursion(p):
+        # 종료조건..!!!!!!
         if not p:
             return ""
         
