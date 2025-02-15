@@ -49,13 +49,13 @@ def solution(n, s, a, b, fares):
     dijkstra(b,b_distance)
     
     answer = INF
-    point = -1 # 분기점 저장
+    # point = -1 # 분기점 저장
     
     for i in range(1,len(s_distance)):
         sum = s_distance[i]+a_distance[i]+b_distance[i]
         if sum < answer:
             answer = sum
-            point = i
+            # point = i
             
     # print(answer)
     # print(point)
