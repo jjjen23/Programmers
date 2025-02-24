@@ -20,7 +20,7 @@ def solution(n, t, m, timetable):
         H,M = timetable[i].split(':')
         timetable[i] = int(H) * 60 + int(M)
     
-    timetable.sort(reverse=True) # 오름차순정렬
+    timetable.sort(reverse=True) # 내림차순 정렬
     
     while n > 0:
         n -= 1
