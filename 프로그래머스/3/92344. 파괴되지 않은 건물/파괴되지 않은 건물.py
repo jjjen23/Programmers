@@ -46,6 +46,9 @@ def solution(board, skill):
     return answer
 
 """
+    review: 누적합 개념을 이용해서 시간 효율을 O(1)을 만들어야하는게 관건인데 부르트 포스를 이용함 -> 부르트 포스 방법으로는 쉽게 코드를 짤 수 있었음!! 
+    2차원 누적합은 어렵구나. . . 새로 배워갑니다.
+
 # 효율성 실패 코드 #부르트포스
 def solution(board, skill):
     answer = 0
