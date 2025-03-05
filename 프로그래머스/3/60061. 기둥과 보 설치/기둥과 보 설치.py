@@ -42,7 +42,8 @@ def solution(n, build_frame):
             answer.append([x,y,a]) # 일단 추가하고 검증해
             if not is_valid(answer):
                 # 유효하지 않으면(설치할 수 없다면) 제거
-                answer.remove([x,y,a])
+                # answer.remove([x,y,a])
+                answer.pop()
         else: #삭제
             answer.remove([x,y,a]) #일단 삭제해봐
             if not is_valid(answer):
@@ -53,3 +54,11 @@ def solution(n, build_frame):
     answer.sort(key=lambda x : (x[0],x[1],x[2]))
     
     return answer
+
+
+"""
+    기둥 설치 조건 하나를 빼먹어서 잘못된 나. 
+    조건이 많은 문제니까 조건을 빼먹지 않는게 중요한 문제
+    조건 식은 잘 세움!!! 조건 하나를 아예 빼먹은게 큰 문제. 응 큰 문제네요. 
+    일단 넣고 검증, 빼고 검증하는 방법은 신박했다. 언젠간 써먹을 수 있길
+"""
