@@ -50,8 +50,7 @@ def solution(play_time, adv_time, logs):
     most_view = 0
     max_time = 0
     
-    # 왜 이렇게 else문을 쓰는건지 모르겟삼
-    # 그냥 광고길이 == 동영상 길이면 00:00:00출력하면 ㅇ안돼? --> 네 안됨
+    # 그냥 광고길이 == 동영상 길이면 00:00:00출력하면 ㅇ안돼? --> 네 안됨. 근데 왜지? 뭐가다른거지 ㅜ?
     for i in range(adv_time-1, play_time):
         if i >= adv_time:
             if most_view < all_time[i] - all_time[i-adv_time]:
@@ -66,3 +65,9 @@ def solution(play_time, adv_time, logs):
     
     
     return answer
+
+
+"""
+    review: 누적합을 응용하는 방법을 참고했다.(답지 참고)
+    누적합을 이렇게 쓸 수 구나.. 감탄. 
+"""
