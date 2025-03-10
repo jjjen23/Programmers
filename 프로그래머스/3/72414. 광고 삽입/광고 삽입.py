@@ -20,8 +20,8 @@ def int_to_str(time):
 def solution(play_time, adv_time, logs):
     answer = ''
     
-    if play_time == adv_time:
-        return '00:00:00'
+    # if play_time == adv_time:
+    #     return '00:00:00'
     
     play_time = str_to_int(play_time)
     adv_time = str_to_int(adv_time)
@@ -50,6 +50,8 @@ def solution(play_time, adv_time, logs):
     most_view = 0
     max_time = 0
     
+    # 왜 이렇게 else문을 쓰는건지 모르겟삼
+    # 그냥 광고길이 == 동영상 길이면 00:00:00출력하면 ㅇ안돼? --> 네 안됨
     for i in range(adv_time-1, play_time):
         if i >= adv_time:
             if most_view < all_time[i] - all_time[i-adv_time]:
@@ -57,8 +59,8 @@ def solution(play_time, adv_time, logs):
                 max_time = i-adv_time+1
         else:
             if most_view < all_time[i]:
-                most_view = all_time[i]
-                max_time = i - adv_time + 1   
+                most_view = all_time[i]  
+                max_time = i - adv_time + 1   # 00:00:00
             
     answer = int_to_str(max_time)
     
