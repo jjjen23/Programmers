@@ -3,8 +3,6 @@ sys.setrecursionlimit(2600)
 
 # 미로를 탈출하기 위한 경로를 출력하라.(사전순으로 가장 빠른 경로 출력, K회 이동가능 == 경로길이가 k여야함)
 # 조건대로 미로 탈출안되는 경우 -> "impossible"출력
-
-            
         
 def solution(n, m, x, y, r, c, k):
     answer = ''
@@ -38,7 +36,7 @@ def solution(n, m, x, y, r, c, k):
                     dist = abs(nx - r) + abs(ny - c)
                     # 현재 위치에서 목표까지 맨해튼 거리가 남은 이동 횟수보다 크다면 더 이상 진행 불가하므로 다른 경로 탐색(상하좌우 탐색)
                     if dist > k - (cnt + 1):
-                        continue
+                        continue # 여기서 모든 반복문이 실행된 경우 -> none반환
                     # 남은 이동 회수보다 맨해튼 거리가 작다면, 그 경로를 추가하고 다음으로 재귀
                     rtn = dfs(nx,ny,path+d[0],cnt+1)
                     
