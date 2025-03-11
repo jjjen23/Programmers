@@ -18,7 +18,8 @@ def solution(n, m, x, y, r, c, k):
     if dist % 2 != k % 2 :
         return "impossible"
     
-
+    
+    # dfs함수는 조건을 만족하는 path를 반환하거나 그렇지 않을 경우 none을 반환한다. -> 즉, 반환하는 값은 조건 만족하는 path, none 중 하나이다.
     def dfs(cx,cy,path,cnt):
         # k를 만족하고, End 좌표에 도달했다면 경로 반환 
         if cnt == k :
