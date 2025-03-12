@@ -5,9 +5,6 @@ def solution(numbers):
     plusmax = numbers[-1] * numbers[-2]
     minusmax = numbers[0] * numbers[1]
     
-    if plusmax > minusmax:
-        answer = plusmax
-    else:
-        answer = minusmax
+    answer = max(plusmax,minusmax)
     
     return answer
