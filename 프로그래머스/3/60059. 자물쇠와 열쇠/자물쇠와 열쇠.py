@@ -6,7 +6,7 @@
 # 좌물쇠의 모든 홈을 채워 비워있는 곳이 없어야, 열 수 있다.
 # 0은 홈, 1은 돌기 부분
 # 열쇠를 이리 저리 돌려서 좌물쇠 0 영역 == 열쇠 1 영역이 같으면 true다.
-
+# key크기는 <= lock의 크기
 
 
 # 1.key 회전 함수 (90, 270, 180)
@@ -18,7 +18,7 @@ def rotate(array , d):
     if d % 4 == 1:
         for i in range(n):
             for j in range(n):
-                result[i][n-j-1] = array[j][i]
+                result[j][n-i-1] = array[i][j]
     # 180
     elif d %  4 == 2:
         for i in range(n):
@@ -29,24 +29,24 @@ def rotate(array , d):
     elif d % 4 == 3:
         for i in range(n):
             for j in range(n):
-                result[n-i-1][j] = array[j][i]
+                result[n-j-1][i] = array[i][j]
     
     # 0, 360 : 그대로
     else:
         return array
     
     return result
-# 2. lock 열림 조건 확인 함수 -> lock과 key를 더해서 lock의 모든 원소가 1이면 오픈 가능
 
+# 2. lock 열림 조건 확인 함수 -> lock과 key를 더해서 lock의 모든 원소가 1이면 오픈 가능
 # 좌물쇠 중간 n*n부분이 모두 1인지 확인하는 함수
 def check(new_lock):
     n = len(new_lock) // 3
-    # n=3이면 3~6까지 확인(중앙)
+    # 예를 들어, n=3이면 3~6까지 확인(중앙)
     for i in range(n, n*2):
         for j in range(n, n*2):
             if new_lock[i][j] != 1:
                 return False
-    return True
+    return True #모든 영역 1일때만 True
 
 def solution(key, lock):
     answer = True
@@ -59,7 +59,7 @@ def solution(key, lock):
         for j in range(n):
             new_lock[n+i][n+j] = lock[i][j]
             
-    # 열쇠를 (1,1)부터 (n*2, n*2)까지 이동시키며 확인
+    # 열쇠를 (1,1)부터 (n*2-1, n*2-1)까지 이동시키며 확인
     for i in range(1, n*2):
         for j in range(1, n*2):
             # 열쇠를 0~270회전 시키며 확인
@@ -78,3 +78,10 @@ def solution(key, lock):
     
     # 이까지 왔다면 못열었단 뜻이죠.
     return False
+
+"""
+    lock의 영역을 확장해서 가능한 모든 각도를 탐색하는 전수조사 방법이었다... 5중반복문일 줄은 몰랐는데..
+    정답을 봤을때 코드 자체가 어렵지는 않았지만 스스로는 생각해내기 어려운 그런 아이디어랄까..
+    일단 lock을 확장하는 것, 확장한 것에서 범위를 적절하게 설정해 열리는지 아닌지 탐색하는 과정이 어려웠던 것 같다. 
+    
+"""
