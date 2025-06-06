@@ -3,6 +3,48 @@ import heapq
 def solution(n, edge):
     answer = 0
     
+    INF = int(1e9) 
+    distance = [INF] * (n+1) #길이 저장 배열
+    graph = [[] for _ in range(n+1)] # 2차원 그래프 저장
+    
+    for a,b in edge:
+        graph[a].append((b,1))
+        graph[b].append((a,1))
+    
+    q = []
+    
+    def dijkstra(start):
+
+        heapq.heappush(q, (0,start)) #큐에 거리, 시작노드 저장
+        distance[start] = 0
+        
+        while q:
+            dist, now = heapq.heappop(q)
+            if distance[now] < dist:
+                continue
+            for i in graph[now]:
+                cost = dist + i[1]
+                if cost < distance[i[0]]:
+                    distance[i[0]] = cost
+                    heapq.heappush(q,(cost,i[0]))
+                    
+    dijkstra(1)
+    max = 0
+    for i in distance:
+        if i != INF and max<i :
+            max = i 
+    return distance.count(max)
+    
+    
+    
+
+
+"""
+import heapq
+
+def solution(n, edge):
+    answer = 0
+    
     INF = int(1e9)
     
     # 1번 노드에서 가장 멀리 떨어진 노드(갯수 출력)  = 다익스트라 알고리즘 이용!!
@@ -48,6 +90,7 @@ def solution(n, edge):
     
     
     return answer
+"""
 
 """
     review: 문제풀면서 아쉬웠던 것: 모든 간선 길이가 동일한데, 저렇게 1로 넣어주는거 말고 더 합리적인 방법이 있을까?
