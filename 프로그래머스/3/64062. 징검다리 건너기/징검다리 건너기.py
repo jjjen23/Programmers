@@ -12,12 +12,46 @@
 def solution(stones, k):
     
     answer = 0
+    
+    Min = 1
+    Max = max(stones)
+    
+    while Min <= Max:
+        count = 0 # Mid를 최대사람 수로 가정했을 때 건널 뛰게 될 간격(0이하의 칸 수 측정) 
+        Mid = (Min + Max) // 2
+        
+        for s in stones:
+            if s - Mid <= 0:
+                count += 1
+            else:
+                count = 0 # 0초과하는 돌은 거기서부터 다시 측정
+                
+            if count == k: #건너뛸 수 있는 최대
+                answer = Mid
+                break
+        
+        # 현재 인원수가 건너뛸수있는 최대 간격보다 k가 더 크다면 상향조정
+        if count < k:
+            Min = Mid + 1
+        else:
+            answer = Mid
+            Max = Mid - 1
+        
+    
+    return answer
+
+"""
+def solution(stones, k):
+    
+    answer = 0
     left = 1 #배열 원소들의 값은 1 이상이므로 1부터가 최소!
     right = max(stones)
     
     while left <= right:
         count = 0
         mid = (left+right) // 2
+        
+        #k는 한번에 건너 뛸 수 있는 칸 수!
         
         for s in stones:
             if s - mid <= 0:
@@ -26,11 +60,15 @@ def solution(stones, k):
             else:
                 # 0 초과일땐 다시 0 부터 카운트
                 count = 0
+        
             if count == k:
                 break
                 
+        # 인원수 크게 재조정
         if count < k :
             left = mid+1
+            
+        # 인원수 작게 재조정
         else:
             right = mid - 1
             answer = mid
@@ -38,6 +76,7 @@ def solution(stones, k):
     
     
     return answer
+"""
 
 
 """
