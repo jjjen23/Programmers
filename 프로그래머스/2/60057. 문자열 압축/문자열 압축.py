@@ -1,4 +1,45 @@
 def solution(s):
+    answer = 0
+    
+    # 문자가 연속해서 반복되는 만큼 숫자로 압축해서 표현, 1은 생략
+    # 연속되는 단위는 조절가능 -> 단어로 압축하는 개념
+    # 1개 이상 단위로 문자열을 잘라 압축하여 표현한 문자열중 가장 짧은 것의 길이를 반환하도록
+    
+    if len(s) == 1:
+        return 1
+    
+    resset = set()
+    
+    for i in range(1,len(s)):
+        prev = ''
+        temstr = ''
+        cnt = 1
+        
+        for j in range(0,len(s),i):
+            if prev == ''.join(s[j:j+i]):
+                cnt += 1
+            else:
+                if cnt > 1:
+                    temstr += (str(cnt) + prev)
+                    cnt = 1
+                else:
+                    temstr += prev
+            prev = ''.join(s[j:j+i])
+            # cnt = 1
+        if cnt > 1:
+            temstr += (str(cnt)+prev)
+        else:
+            temstr += prev
+        resset.add(len(temstr))
+    
+    answer = min(resset)
+    
+
+    return answer
+
+
+"""
+def solution(s):
     if len(s) == 1:
         return 1
     
@@ -6,6 +47,7 @@ def solution(s):
     answer = 0
     # print(len(s))
     # print(test[0:4])
+    
     for i in range(1,len(s)):
         # dict1 = {}
         strtem = ''
@@ -45,7 +87,14 @@ def solution(s):
     resset = list(resset)
     resset.sort()
     answer =resset[0]
-                        
+        
+    return answer
+"""
+
+
+
+
+
         # resset.add(len(strtem))
             
             # chgstr = ''.join(s[j:j+i])
@@ -67,6 +116,3 @@ def solution(s):
     # resset.sort()
     # print(resset)
     # answer = resset[0]
-            
-        
-    return answer
